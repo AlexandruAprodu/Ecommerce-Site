@@ -1,0 +1,20 @@
+{% extends "ecomm/base.html" %}
+
+{% block content %}
+    <h2>Esti sigur ca datele sunt completate corect?</h2>
+    <small>In cazul in care datele nu sunt corecte, foloseste butonul back din Browser</small>
+     <form action="{% url 'shopping_cart:checkout' %}" method="post">
+         {% csrf_token %}
+
+        <label for="male">{{ address.shipping_address }}>
+            <input class="with-gap"  id="male" type="checkbox" name="shipping_address" value= "{{ adresa.id }}"/>
+            <span>Check</span>
+        </label>
+
+<!--            <input type="radio" id="male" name="shipping_address" value= "{{ adresa.id }}">-->
+<!--            <label for="male">{{ adresa.shipping_address }}</label><br>-->
+
+
+        <button class="pull-right btn btn-primary">Thank you</button>
+    </form>
+{% endblock %}
