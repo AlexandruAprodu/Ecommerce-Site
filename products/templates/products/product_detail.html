@@ -1,0 +1,32 @@
+{% extends "ecomm/base.html" %}
+
+{% block content %}
+
+    {% for product in context2 %}
+        <section class="banner-bottom py-5">
+            <div class="row shop-wthree-info text-center">
+                <div class="col-lg-3 shop-info-grid text-center mt-4">
+                    <div class="product-shoe-info shoe">
+                        <img src="{{ product.picture.url }}">
+                        <h3>{{product.title}}</h3>
+                        <p>{{product.description}}</p>
+                        <p>{{product.stock}} product{{product.stock|pluralize}} available</p>
+                        <p>{{product.price}} LEI</p>
+                        {% if user.is_authenticated and product.stock > 0 %}
+                            <form method='post'>
+                                {% csrf_token %}
+                                <a href="{% url 'shopping_cart:add_to_cart' product.id %}?return_to={{ request.get_full_path }}" class="btn btn-warning">Add to Cart</a>
+                            </form>
+                        {% elif user.is_authenticated == False %}
+                            <button type="button" class="btn btn-outline-secondary" disabled>Please Log In</button>
+                        {% elif user.is_authenticated and product.stock < 1 %}
+                            <button type="button" class="btn btn-outline-secondary" disabled>Insufficient Stock</button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endfor %}
+
+{% endblock %}
+
