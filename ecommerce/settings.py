@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['aaproduecommerce.herokuapp.com', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+
     'shopping_cart.apps.ShoppingCartConfig',
     'crispy_forms',
     'users.apps.UsersConfig',
@@ -45,6 +46,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddelware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
