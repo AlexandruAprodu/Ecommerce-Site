@@ -1,0 +1,31 @@
+{% extends "ecomm/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <section class="banner-bottom py-5">
+        <div class="container">
+            <div class="content-grid">
+                <div class="content-bottom">
+                    <form method="post">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            <legend class="border-bottom mb-4">Log in</legend>
+                            {{ form|crispy }}
+                        </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn-outline-info" type="submit">Login</button>
+                        </div>
+                        <ul class="list-login-bottom">
+                            <li class="">
+                                <a href="{% url 'users:register' %}" class="">Don't have an Account?</a>
+                            </li>
+                            <li class="">
+                                <a href= "{% url 'ecomm:contact' %}" class="text-right">Need Help?</a>
+                            </li>
+                            <li class="clearfix"></li>
+                        </ul>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
