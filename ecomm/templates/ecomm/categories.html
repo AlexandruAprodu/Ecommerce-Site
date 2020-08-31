@@ -1,0 +1,16 @@
+{% extends "ecomm/base.html" %}
+{% load static %}
+{% block content %}
+    {% for categorie in context1 %}
+        <div class="card_2">
+          <div class="card_image">
+            <img src="{{ categorie.image.url }}" />
+            </div>
+          <div class="card_title1 title-white">
+            <a href="{% url 'products:categorii' categorie.slug %}" class="card-link">Click</a>
+          </div>
+        </div>
+
+{% endfor context1 %}
+
+{% endblock %}

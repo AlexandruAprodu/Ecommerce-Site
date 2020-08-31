@@ -1,0 +1,74 @@
+{% extends "ecomm/base.html" %}
+{% load static %}
+{% block content %}
+    <!-- //banner-->
+    {% if message_name %}
+
+        <center class="ml-4">
+            <h4>Multumim {{ message_name }}!</h4>
+            <p>Vom reveni la tine in cel mai scurt timp posibil!</p>
+            <br/>
+        </center>
+    {% else %}
+        <!--/contact -->
+        <section class="banner-bottom py-5">
+            <div class="container py-md-5">
+                <h3 class="title-wthree mb-lg-5 mb-4 text-center">Contact Us </h3>
+                <div class="row contact_information">
+                    <div class="col-md-6">
+                        <div class="contact_right p-lg-5 p-4">
+                            <form action="{% url 'ecomm:contact' %}" method="post">
+                                {% csrf_token %}
+                                <div class="field-group">
+                                    <div class="content-input-field">
+                                        <label for="name"></label>
+                                        <input type="text" id="name" name="message_name" placeholder="Your name..">
+                                    </div>
+                                    <div class="content-input-field">
+                                        <label for="mail"></label>
+                                        <input type="email" id="mail" name="mail" placeholder="Your email...">
+                                    </div>
+                                    <label for="subject"></label>
+                                    <textarea id="subject" name="subject" placeholder="Your message to us..." style="height:200px"></textarea>
+
+                                    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                        <i class="material-icons right">send</i>
+                                    </button>
+
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-6 contact_left p-4">
+                        <iframe width="815" height="450" frameborder="0" style="border:0"
+                            src="https://www.google.com/maps/embed/v1/place?q=place_id:EilTdHJhZGEgQ2Fwb3JhbCBJbGluYSwgQnVjdXJlyJl0aSwgUm9tYW5pYSIuKiwKFAoSCbtJaMKW_7FAEWvFYvsyGFgjEhQKEglPrTy_OvmxQBEoppx84zIGrA&key=AIzaSyCi9MPt0Q9ojB0pk7PbQNufgeHSyTZ2efA" allowfullscreen>
+
+                        </iframe>
+
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mt-lg-4 contact-inn-w3pvt">
+                        <div class="mt-5 information-wthree">
+                            <h4 class="text-uppercase mb-4"><span class="fa fa-comments"></span> Communication</h4>
+                            <p class="cont-wthree-para mb-3 text-capitalize">for general queries, including property Sales and constructions, please email us at <a href="mailto:info@example.com">info@example.com</a></p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mt-lg-4 contact-inn-w3pvt">
+                        <div class="mt-5 information-wthree">
+                            <h4 class="text-uppercase mb-4"><span class="fa fa-life-ring"></span> Technical Support</h4>
+                            <p class="cont-wthree-para mb-3 text-capitalize">we are ready to help! if you have any queries or issues, contact us for support <label>+12 388 455 6789</label>.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mt-lg-4 contact-inn-w3pvt">
+                        <div class="mt-5 information-wthree">
+                            <h4 class="text-uppercase mb-4"><span class="fa fa-map"></span> Others</h4>
+                            <p class="cont-wthree-para mb-3 text-capitalize">we are ready to help! if you have any queries or issues, contact us for support <label>+12 388 455 6789</label>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--//contact -->
+    {% endif %}
+{% endblock %}

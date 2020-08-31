@@ -1,0 +1,24 @@
+{% extends "ecomm/base.html" %}
+
+{% block content %}
+    {% for produs in products %}
+        <h3>{{produs.title}}</h3>
+        <p>{{produs.description}}</p>
+        <img src="{{ produs.picture.url }}">
+        <p>{{produs.price}}</p>
+        {% if user.is_authenticated and produs.stock > 0 %}
+            <form method='post'>
+                {% csrf_token %}
+                <a href="{% url 'shopping_cart:add_to_cart' produs.id %}?return_to={{ request.get_full_path }}" class="btn btn-warning">Add to Cart</a>
+            </form>
+        {% elif user.is_authenticated == False %}
+            <button type="button" class="btn btn-outline-secondary" disabled>Please Log In</button>
+        {% elif user.is_authenticated and produs.stock < 1 %}
+            <button type="button" class="btn btn-outline-secondary" disabled>Insufficient Stock</button>
+        {% endif %}
+        {% empty %}
+            <h2>No results found</h2>
+    {% endfor %}
+
+{% endblock %}
+
