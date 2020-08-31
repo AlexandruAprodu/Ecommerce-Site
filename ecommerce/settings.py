@@ -84,9 +84,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ecommerce',
-        'USER': 'root',
-        'PASSWORD': '1234',
-        'HOST': '127.0.0.1',  # Or an IP Address that your DB is hosted on
+        'USER': 'b88b13efd82a96',
+        'PASSWORD': '7f94d1b3',
+        'HOST': 'eu-cdbr-west-03.cleardb.net',  # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
 }
