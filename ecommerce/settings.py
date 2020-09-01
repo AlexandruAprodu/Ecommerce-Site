@@ -25,7 +25,7 @@ SECRET_KEY = 'ga_(8nhbzz@g9xz%72$)c)ugv@&41))u$qon62^%u=4@#e3m#w'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['aaproduecommerce.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['aaproduecommerce.herokuapp.com']
 
 
 # Application definition
@@ -83,9 +83,9 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'heroku_4ed4834cd39ccd9',
-        'USER': 'b88b13efd82a96',
-        'PASSWORD': '7f94d1b3',
+        'NAME': 'heroku_217b0c3cbdff436',
+        'USER': 'b0d8d543ea5ea3',
+        'PASSWORD': '84dea1ee',
         'HOST': 'eu-cdbr-west-03.cleardb.net',  # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
