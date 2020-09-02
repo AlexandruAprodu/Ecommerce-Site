@@ -2,14 +2,15 @@
 {% load static %}
 {% block content %}
     {% for categorie in context1 %}
-        <div class="card_2">
-          <div class="card_image">
-            <img src="{{ categorie.image.url }}" />
+        <a href="{% url 'products:categorii' categorie.slug %}" class="card-link">
+            <div class="card_2">
+              <div class="card_image">
+                <img src="{{ categorie.image.url }}" />
+                </div>
+              <div class="card_title1 title-white">
+              </div>
             </div>
-          <div class="card_title1 title-white">
-            <a href="{% url 'products:categorii' categorie.slug %}" class="card-link">Click</a>
-          </div>
-        </div>
+        </a>
 
 {% endfor context1 %}
 
